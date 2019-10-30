@@ -1,19 +1,18 @@
 <template>
   <div>
-    <ul>
-      <li v-for="(todoItem, index) in propsdata" v-bind:key="todoItem.key" class="shadow">
+    <transition-group name="list" tag="ul">
+      <li v-for="(todoItem, index) in propsdata" v-bind:key="index" class="shadow">
         <i
           class="checkBtn fas fa-check"
           :class="{checkBtnCompleted: todoItem.completed}"
           @click="toggleComplete(todoItem, index)"
         ></i>
         <span :class="{textCompleted: todoItem.completed}">{{ todoItem.item }}</span>
-
         <span class="removeBtn" @click="removeTodo(todoItem, index)">
           <i class="fas fa-trash-alt"></i>
         </span>
       </li>
-    </ul>
+    </transition-group>
   </div>
 </template>
 
