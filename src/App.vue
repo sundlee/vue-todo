@@ -39,7 +39,7 @@ export default {
 			this.todoItems = [];
 		},
 	},
-	created: function() {
+	created() {
 		if (localStorage.length > 0) {
 			for (let i = 0; i < localStorage.length; i++) {
 				if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
