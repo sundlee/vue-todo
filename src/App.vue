@@ -20,11 +20,6 @@ export default {
 		};
 	},
 	methods: {
-		addOneItem(todoItem) {
-			const obj = { completed: false, item: todoItem };
-			localStorage.setItem(todoItem, JSON.stringify(obj));
-			this.todoItems.push(obj);
-		},
 		removeOneItem(todoItem, index) {
 			localStorage.removeItem(todoItem.item);
 			this.todoItems.splice(index, 1);
@@ -38,17 +33,6 @@ export default {
 			localStorage.clear();
 			this.todoItems = [];
 		},
-	},
-	created() {
-		if (localStorage.length > 0) {
-			for (let i = 0; i < localStorage.length; i++) {
-				if (localStorage.key(i) !== 'loglevel:webpack-dev-server') {
-					this.todoItems.push(
-						JSON.parse(localStorage.getItem(localStorage.key(i))),
-					);
-				}
-			}
-		}
 	},
 	components: {
 		TodoHeader,
